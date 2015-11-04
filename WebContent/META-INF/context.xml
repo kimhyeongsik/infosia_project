@@ -2,7 +2,7 @@
 <Context>
 	<Resource 
 	        auth="Container" 
-      		name="jdbc/oracle10"
+      		name="jdbc/oracle10" 
       		type="javax.sql.DataSource"
       		driverClassName="oracle.jdbc.driver.OracleDriver"
       		factory="org.apache.commons.dbcp.BasicDataSourceFactory"
