@@ -25,7 +25,66 @@
 
 <struts-config>
 
-	
+	<form-beans>
+
+		<!-- 회원 bean -->
+		<form-bean name="employee" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="name" type="java.lang.String"
+				reset="true" />
+			<form-property name="email" type="java.lang.String"
+				reset="true" />
+			<form-property name="pwd" type="java.lang.String"
+				reset="true" />
+			<form-property name="repwd" type="java.lang.String"
+				reset="true" />
+		</form-bean>
+
+		<!-- 로그인 bean -->
+		<form-bean name="login" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="pwd" type="java.lang.String"
+				reset="true" />
+			<form-property name="grade" type="java.lang.Integer" />
+		</form-bean>
+
+
+	</form-beans>
+
+	<action-mappings>
+
+
+		<!-- 로그인 처리 -->
+		<action path="/loginAction" type="struts.Action.LoginAction"
+			name="login" validate="true">
+
+		</action>
+
+		<!-- 사원 -->
+		<!--등록 폼 -->
+		<action path="/user/regemployee" forward="/WEB-INF/view/user/regform.jsp" />
+
+		<!-- 등록 처리 -->
+		<action path="/user/regemployeeAction" type="struts.Action.RegEmployeeAction"
+			name="employee" validate="true">
+
+		</action>
+
+		<!-- 로그인 페이지 -->
+		<action path="/user/login" forward="/WEB-INF/view/user/login.jsp" />
+
+
+		<!-- 사원 끝 -->
+		
+		<!-- 관리자 -->
+		<!-- 로그인 페이지 -->
+		<action path="/admin/login" forward="/WEB-INF/view/admin/login.jsp" />
+		
+		
+		<!-- 관리자 끝 -->
+
+
+
+	</action-mappings>
 
 	<!-- UTF-8 인코딩 -->
 	<controller processorClass="struts.Processor.EncodingProcessor" />
