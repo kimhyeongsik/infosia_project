@@ -46,7 +46,7 @@
 				reset="true" />
 			<form-property name="grade" type="java.lang.Integer" />
 		</form-bean>
-
+		
 
 	</form-beans>
 
@@ -71,6 +71,9 @@
 
 		<!-- 로그인 페이지 -->
 		<action path="/user/login" forward="/WEB-INF/view/user/login.jsp" />
+		
+		<!-- 메인페이지 -->
+		<action path="/user/main" type="struts.Action.UserMainAction"></action>
 
 
 		<!-- 사원 끝 -->
@@ -78,6 +81,12 @@
 		<!-- 관리자 -->
 		<!-- 로그인 페이지 -->
 		<action path="/admin/login" forward="/WEB-INF/view/admin/login.jsp" />
+		
+		<!-- 메인 페이지 -->
+		<action path="/admin/main" type="struts.Action.AdminMainAction"></action>
+		
+		<!-- 사원 출퇴근 리스트 -->
+		<action path="/admin/worktimelist" type="struts.Action.WorkTimeListAction"></action>
 		
 		
 		<!-- 관리자 끝 -->

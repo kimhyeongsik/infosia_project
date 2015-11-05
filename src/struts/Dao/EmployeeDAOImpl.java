@@ -1,5 +1,7 @@
 package struts.Dao;
 
+import java.util.List;
+
 import struts.Model.EmployeeVO;
 
 public class EmployeeDAOImpl implements EmployeeDAO{
@@ -13,17 +15,36 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		return single;
 	}
 
+
 	@Override
-	public int insertEmployee(EmployeeVO vo) {
+	public int insertEmployee() throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public EmployeeVO selectEmployee(String email, String pwd, int grade) {
+	public EmployeeVO selectEmployee() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<EmployeeVO> selectEmployeeList() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int updateEmployee() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	
+
+	
 	
 	
 

@@ -1,10 +1,10 @@
-create table sawon
+create table Employee
 (
- sno int primary key,
+ eno number primary key,
  email varchar2(100),
- name varchar2(50),
- pwd varchar2(50),
- grade int default 0
+ name varchar2(10),
+ pwd varchar2(30),
+ grade number default 0
 )
 
 drop table sawon

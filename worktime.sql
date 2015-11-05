@@ -1,9 +1,9 @@
-create table timetable
+create table worktime
 (
- sno int references sawon(sno) on delete cascade not null,
+ eno int references employee(eno) on delete cascade not null,
+ regdate date,
  div varchar2(10),
- regtime date,
- regdate date
+ regtime date
  )
  
  

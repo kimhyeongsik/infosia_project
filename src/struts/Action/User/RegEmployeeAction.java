@@ -1,4 +1,7 @@
-package struts.Action;
+package struts.Action.User;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,9 +36,13 @@ public class RegEmployeeAction extends Action {
 		String email = dyform.getString("email");
 		String pwd = dyform.getString("pwd");
 
-		/*모델에 주입*/
-		vo = new EmployeeVO(name, email, pwd);
-
+		/*MAP에 담기*/
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("name", name);
+		map.put("email", email);
+		map.put("pwd", pwd);
+		
+		
 		/*dao 생성*/
 		dao = EmployeeDAOImpl.getInstance();
 
@@ -44,7 +51,7 @@ public class RegEmployeeAction extends Action {
 
 		/*dao전달*/
 		/*0이면 false, 1이면 true*/
-		result = dao.insertEmployee(vo);
+		
 
 		/*0이면 다시 작성페이지로 이동*/
 		if(result == 0){

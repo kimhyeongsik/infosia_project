@@ -1,5 +1,8 @@
 package struts.Action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -35,12 +38,26 @@ public class LoginAction extends Action {
 		
 		dao = EmployeeDAOImpl.getInstance();
 		
-		vo = dao.selectEmployee(email, pwd, grade);
+		
 		
 		
 		if(vo == null){
 			
 		}
+		
+		
+		
+		if(vo.getGrade() == 0){
+			
+			
+			String regdate = "";
+			String regtime = "";
+			
+			
+			
+			
+		}
+		
 		
 		
 		
