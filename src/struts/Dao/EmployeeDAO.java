@@ -6,10 +6,10 @@ import struts.Model.EmployeeVO;
 
 public interface EmployeeDAO {
 	
-	public int insertEmployee() throws Exception;
-	public EmployeeVO selectEmployee(String email, String pwd, int grade) throws Exception;
-	public int updateEmployee() throws Exception;
-	public List<EmployeeVO> selectEmployeeList() throws Exception;
+	public int insertEmployee(String name, String email, String pwd);
+	public EmployeeVO selectEmployee(String email, String pwd, int grade) ;
+	public int updateEmployee(int eno, String email, String name, String pwd);
+	public List<EmployeeVO> selectEmployeeList();
 	
 
 }

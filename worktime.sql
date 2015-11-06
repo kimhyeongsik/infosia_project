@@ -1,9 +1,11 @@
 create table worktime
 (
  eno int references employee(eno) on delete cascade not null,
- regdate date,
+ regdate char(10),
  div varchar2(10),
- regtime date
+ regtime char(5)
  )
+ 
+ drop table worktime
  
  

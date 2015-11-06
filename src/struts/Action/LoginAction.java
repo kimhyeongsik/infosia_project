@@ -17,57 +17,56 @@ import struts.Model.EmployeeVO;
 import struts.Util.DateCal;
 
 public class LoginAction extends Action {
-	
+
 	private EmployeeDAO dao;
 	private EmployeeVO vo;
-	
-	
+
+
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+					throws Exception {
 		// TODO Auto-generated method stub
-		
+
 		DynaActionForm dyform = (DynaActionForm) form;
-		
-		
+
+
 		String email = dyform.getString("email");
 		String pwd = dyform.getString("pwd");
 		Integer grade = (Integer) dyform.get("grade");
-		
-		
+
+
 		dao = EmployeeDAOImpl.getInstance();
-		
+
 		vo = dao.selectEmployee(email, pwd, grade);
-		
-		
+
+
 		if(vo == null){
-			
+			return mapping.findForward("false");
 		}
-		
-		
-		
+
+
+
 		if(vo.getGrade() == 0){
-			
+
 			DateCal date = new DateCal();
-			
+
 			int eno = vo.getEno();
-			String div = "√‚±Ÿ";
 			String regdate = date.getTodaydate();
 			String regtime = date.getTodaytime();
-			
+
 			WorkTimeDAO workdao = WorkTimeDAOImpl.getInstance();
-			
-			workdao.insertInWorkTime(eno,div,regdate, regtime);
-			
-			
+
+			workdao.insertInWorkTime(eno,regdate, regtime);
+
+
 		}
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 		return super.execute(mapping, form, request, response);
 	}
 
