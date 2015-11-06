@@ -21,8 +21,6 @@
 	in the "form-bean" declarations. Otherwise, you would only define the "form-bean" 
 	element itself, with the corresponding "name" and "type" attributes, as shown 
 	here. -->
-
-
 <struts-config>
 
 	<form-beans>
@@ -46,8 +44,6 @@
 				reset="true" />
 			<form-property name="grade" type="java.lang.Integer" />
 		</form-bean>
-		
-
 	</form-beans>
 
 	<action-mappings>
@@ -71,32 +67,40 @@
 
 		<!-- 로그인 페이지 -->
 		<action path="/user/login" forward="/WEB-INF/view/user/login.jsp" />
-		
+
 		<!-- 메인페이지 -->
 		<action path="/user/main" type="struts.Action.UserMainAction"></action>
 
 
 		<!-- 사원 끝 -->
-		
+
 		<!-- 관리자 -->
 		<!-- 로그인 페이지 -->
 		<action path="/admin/login" forward="/WEB-INF/view/admin/login.jsp" />
-		
+
 		<!-- 메인 페이지 -->
 		<action path="/admin/main" type="struts.Action.AdminMainAction"></action>
-		
+
 		<!-- 사원 출퇴근 리스트 -->
 		<action path="/admin/worktimelist" type="struts.Action.WorkTimeListAction"></action>
-		
-		
+
+
 		<!-- 관리자 끝 -->
 
-
-
 	</action-mappings>
+
 
 	<!-- UTF-8 인코딩 -->
 	<controller processorClass="struts.Processor.EncodingProcessor" />
 
-</struts-config>
+	<!-- 에러메세지 -->
+	<message-resources parameter="MessageResources" />
 
+	<!-- 유효성 검사 -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property
+			value="/org/apache/struts/validator/validator-rules.xml, /WEB-INF/validation.xml"
+			property="pathnames" />
+	</plug-in>
+
+</struts-config>

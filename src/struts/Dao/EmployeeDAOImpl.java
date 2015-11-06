@@ -22,11 +22,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		return 0;
 	}
 
-	@Override
-	public EmployeeVO selectEmployee() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<EmployeeVO> selectEmployeeList() throws Exception {
@@ -39,6 +34,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	public int updateEmployee() throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+
+	@Override
+	public EmployeeVO selectEmployee(String email, String pwd, int grade)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

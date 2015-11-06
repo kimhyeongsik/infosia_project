@@ -1,8 +1,5 @@
 package struts.Action;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,7 +11,10 @@ import org.apache.struts.action.DynaActionForm;
 
 import struts.Dao.EmployeeDAO;
 import struts.Dao.EmployeeDAOImpl;
+import struts.Dao.WorkTimeDAO;
+import struts.Dao.WorkTimeDAOImpl;
 import struts.Model.EmployeeVO;
+import struts.Util.DateCal;
 
 public class LoginAction extends Action {
 	
@@ -38,7 +38,7 @@ public class LoginAction extends Action {
 		
 		dao = EmployeeDAOImpl.getInstance();
 		
-		
+		vo = dao.selectEmployee(email, pwd, grade);
 		
 		
 		if(vo == null){
@@ -49,11 +49,16 @@ public class LoginAction extends Action {
 		
 		if(vo.getGrade() == 0){
 			
+			DateCal date = new DateCal();
 			
-			String regdate = "";
-			String regtime = "";
+			int eno = vo.getEno();
+			String div = "√‚±Ÿ";
+			String regdate = date.getTodaydate();
+			String regtime = date.getTodaytime();
 			
+			WorkTimeDAO workdao = WorkTimeDAOImpl.getInstance();
 			
+			workdao.insertInWorkTime(eno,div,regdate, regtime);
 			
 			
 		}
